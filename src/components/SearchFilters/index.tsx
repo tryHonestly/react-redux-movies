@@ -12,9 +12,11 @@ import { setFilter } from '../../redux/slices/FilterSlice'
 
 import styles from './SearchFilters.module.scss'
 
+type PropsType = {
+  setState? : (state : {top:boolean}) => void
+}
 
-
-const SearchFilters:React.FC = React.memo(() => {
+const SearchFilters:React.FC<PropsType> = React.memo(({setState}) => {
 
   const searchQueryString = useSelector(selectSearchQueryString)
   const filter= useSelector(selectFilter) 
@@ -30,6 +32,9 @@ const SearchFilters:React.FC = React.memo(() => {
   const apply = () => {
     dispatch(setFilter({with_genres:chosenGenres, primary_release_year:chosenYear, sort_by:chosenSort}))
     dispatch(setSearchQueryString(``))
+    if(setState) {
+      setState({top: false})
+    }
    }
   const reset = () => {
     dispatch(setFilter({with_genres:[], primary_release_year:'', sort_by:''}))

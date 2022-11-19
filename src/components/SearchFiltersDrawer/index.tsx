@@ -25,18 +25,16 @@ const Drawer:React.FC = () => {
                
         return
       }
-    
+         
       setState({[anchor]: open })
     }
 
   const list = (anchor: Anchor) => (
    <Box
       role="presentation"
-      onClick={toggleDrawer(anchor, true)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <SearchFilters />
-     
+     <SearchFilters setState={setState}/>
     </Box>
   )
 
