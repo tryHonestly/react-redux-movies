@@ -1,0 +1,24 @@
+.mainCard {
+  width: 300px;
+  text-align: center;
+}
+
+.posterRating {
+  background-color: rgba($color: #ffffff, $alpha: 0.7);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 0px 0px 0px 15px;
+  min-width: 70px;
+}
+
+.catalogCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  .media {
+    width: 120px;
+  }
+}

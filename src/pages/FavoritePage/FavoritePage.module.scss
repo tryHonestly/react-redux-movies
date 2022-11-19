@@ -1,0 +1,13 @@
+.root {
+  h1 {
+    padding: 20px 0px;
+    text-align: center;
+  }
+  .moviesBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}

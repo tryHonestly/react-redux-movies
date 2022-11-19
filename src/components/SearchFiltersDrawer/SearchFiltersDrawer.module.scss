@@ -1,0 +1,11 @@
+.root {
+  display: none;
+  @media (max-width: 766px) {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    top: 58px;
+    left: 0px;
+  }
+}

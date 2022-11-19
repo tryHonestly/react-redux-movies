@@ -1,0 +1,19 @@
+.root {
+  h1 {
+    padding: 20px 0px;
+    text-align: center;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .moviesBox {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+    }
+  }
+}

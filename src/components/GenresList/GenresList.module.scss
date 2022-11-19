@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .genre_item {
+    color: white;
+    background-color: #2196f3;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .chosen {
+    background-color: #505050;
+  }
+
+  @media (max-width: 766px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 23px;
+  }
+}
