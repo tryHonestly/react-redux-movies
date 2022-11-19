@@ -41,6 +41,7 @@ const ProfileMenu: React.FC = () => {
       setState({ ...state, [anchor]: open })
     }
 
+
   return (
     <>
       <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -58,14 +59,13 @@ const ProfileMenu: React.FC = () => {
             open={state['right']}
             onClose={toggleDrawer('right', false)}
             onOpen={toggleDrawer('right', true)}
+            onClick={toggleDrawer('right', false)}
           >
-            <ListItem sx={{ display: 'flex', flexDirection: 'column' }}>
+            <ListItem sx={{ display: 'flex', flexDirection: 'column' }} >
               <ListItemText>
                 <Typography variant="h4">{user.username}</Typography>
                   <hr />
                </ListItemText>
-              
-              
               <ListItemButton onClick={() => {navigate(RoutesEnum.Favorites)}}>
                 <ListItemIcon>
                   <FavoriteIcon fontSize="large" />
@@ -87,7 +87,7 @@ const ProfileMenu: React.FC = () => {
                   <SignOutButton/>
                 </ListItemText>
               </ListItemButton>
-            </ListItem>
+             </ListItem>
           </SwipeableDrawer>
         </React.Fragment>
       </Box>

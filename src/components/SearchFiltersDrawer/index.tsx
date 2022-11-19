@@ -22,25 +22,30 @@ const Drawer:React.FC = () => {
         ((event as React.KeyboardEvent).key === 'Tab' ||
           (event as React.KeyboardEvent).key === 'Shift')
       ) {
+               
         return
       }
-
-      setState({ ...state, [anchor]: open })
+    
+      setState({[anchor]: open })
     }
 
   const list = (anchor: Anchor) => (
    <Box
-      className={styles.test}
       role="presentation"
       onClick={toggleDrawer(anchor, true)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <SearchFilters />
+     
     </Box>
   )
 
+
+  
+
   return (
     <div className={styles.root}>
+       
       {([`top`] as const).map((anchor) => (
         <React.Fragment key={anchor}>
           <Button
@@ -58,9 +63,11 @@ const Drawer:React.FC = () => {
             onOpen={toggleDrawer(anchor, true)}
           >
             {list(anchor)}
+            <Button  onClick={toggleDrawer(anchor, false)}>CLOSE</Button>
           </SwipeableDrawer>
         </React.Fragment>
       ))}
+     
     </div>
   )
 }
