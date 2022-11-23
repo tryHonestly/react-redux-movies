@@ -9,7 +9,7 @@ import { logout } from '../../redux/slices/AuthSlice'
 import { AppDispatch } from '../../redux/store'
 
 
-const SignOutButton = React.memo(() => {
+const SignOutButton = () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch<AppDispatch>()
@@ -25,6 +25,6 @@ const SignOutButton = React.memo(() => {
   return (
     <Button color='error' variant='contained' size='large' onClick={clickHandler}>SignOut</Button>
   )
-})
+}
 
 export default SignOutButton

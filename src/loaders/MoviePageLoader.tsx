@@ -1,6 +1,7 @@
+import React from 'react'
 import { Skeleton, Box } from '@mui/material'
 
-const MoviePageLoader = () => {
+const MoviePageLoader = React.memo(() => {
   return (
     <Box sx={{ display: `flex`, flexWrap: `wrap`, gap: `20px`, justifyContent: `center`, marginTop:'80px' }}>
       <Skeleton variant="rectangular" width={400} height={600} />
@@ -20,6 +21,6 @@ const MoviePageLoader = () => {
       <Skeleton variant="rectangular" width={`100%`} height={50}/>
     </Box>
   )
-}
+})
 
 export default MoviePageLoader

@@ -18,7 +18,7 @@ type PropsType = {
   children?: React.ReactNode
 }
 
-export const CatalogCard: React.FC<PropsType> = ({ movie, children }) => {
+export const CatalogCard: React.FC<PropsType> = React.memo(({ movie, children }) => {
   const clickHandler = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
     navigate(`/moviePage/${movie.id}`)
@@ -60,9 +60,9 @@ export const CatalogCard: React.FC<PropsType> = ({ movie, children }) => {
       </Card>
     </CardActionArea>
   )
-}
+})
 
-export const MainCard: React.FC<PropsType> = ({ movie, children }) => {
+export const MainCard: React.FC<PropsType> = React.memo(({ movie, children }) => {
   const navigate = useNavigate()
 
   const clickHandler = () => {
@@ -99,4 +99,4 @@ export const MainCard: React.FC<PropsType> = ({ movie, children }) => {
       {children}
     </Card>
   )
-}
+})

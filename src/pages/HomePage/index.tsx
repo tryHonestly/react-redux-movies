@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Alert } from '@mui/material'
@@ -22,9 +23,7 @@ const movieListTilte = {
 }
 
 export const HomePage = () => {
-
-  
-  
+ 
   const dispatch = useDispatch()
 
   const category = useSelector(selectCategory)

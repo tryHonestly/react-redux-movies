@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -32,10 +33,7 @@ export const MoviePage = () => {
         })
     }
   }, [isAuth])
-
-
- 
-  
+   
   return (
     
     <div className={styles.root}>

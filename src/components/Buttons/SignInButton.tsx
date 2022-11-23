@@ -4,7 +4,7 @@ import React from 'react'
 import { TMDB_UserApi } from '../../services/TMDB_UserApi'
 
 
-export const SignInButton = React.memo(() => {
+export const SignInButton = () => {
 
   const clickHandler = async () => {
     TMDB_UserApi.authentication()
@@ -16,4 +16,4 @@ export const SignInButton = React.memo(() => {
       Sign in
     </Button>
   )
-})
+}

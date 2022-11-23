@@ -5,7 +5,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 
 import { RoutesEnum } from '../../constants/routes'
 
-const FavoritesButton = React.memo(() => {
+const FavoritesButton = () => {
   const navigate = useNavigate()
 
   return (
@@ -21,6 +21,6 @@ const FavoritesButton = React.memo(() => {
       <FavoriteIcon />
     </Button>
   )
-})
+}
 
 export default FavoritesButton

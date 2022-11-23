@@ -50,8 +50,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 
-const SearchInput = React.memo(() => {
-
+const SearchInput = () => {
      
   const filter = useSelector(selectFilter)
   
@@ -60,7 +59,6 @@ const SearchInput = React.memo(() => {
   const [inputValue, setInputValue] = useState(``)
   const debounce = useDebounce(inputValue, 600)
   const navigate = useNavigate()
-
   
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         
@@ -99,6 +97,6 @@ const SearchInput = React.memo(() => {
       />
     </Search>
   )
-})
+}
 
 export default SearchInput

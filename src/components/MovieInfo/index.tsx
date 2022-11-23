@@ -17,7 +17,7 @@ type PropsType = {
 }
 
 
-const MovieInfo: React.FC<PropsType> = ({ details, inLists }) => {
+const MovieInfo: React.FC<PropsType> = React.memo(({ details, inLists }) => {
   const isAuth = useSelector(selectIsAuth)
   
   return (
@@ -50,6 +50,6 @@ const MovieInfo: React.FC<PropsType> = ({ details, inLists }) => {
       <InfoItems details={details} />
     </div>
   )
-}
+})
 
 export default MovieInfo

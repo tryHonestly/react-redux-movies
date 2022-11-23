@@ -10,13 +10,13 @@ type PropsType = {
   cast : CastType[] | undefined
 }
 
-const CastList:React.FC<PropsType> = ({cast}) => {
+const CastList:React.FC<PropsType> = React.memo(({cast}) => {
    
   return (
     <div className={styles.root}>
       {cast?.map(actor => actor.profile_path ? <ActorCard key={actor.id} actor={actor}/> : ``)}
     </div>
   )
-}
+})
 
 export default CastList

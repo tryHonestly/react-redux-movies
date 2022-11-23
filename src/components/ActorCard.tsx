@@ -1,3 +1,4 @@
+import React from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -11,7 +12,7 @@ type PropsType = {
 }
 
 
-const ActorCard:React.FC<PropsType> =({actor}) => {
+const ActorCard:React.FC<PropsType> = React.memo(({actor}) => {
   return (
     <Card sx={{ maxWidth: 140 }}>
  
@@ -33,6 +34,6 @@ const ActorCard:React.FC<PropsType> =({actor}) => {
     
     </Card>
   );
-}
+})
 
 export default ActorCard

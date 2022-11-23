@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Box from '@mui/material/Box'
@@ -16,7 +16,7 @@ interface TabPanelProps {
   value: number
 }
 
-function TabPanel(props: TabPanelProps) {
+const TabPanel = React.memo((props: TabPanelProps)  => {
   const { children, value, index, ...other } = props
 
   return (
@@ -34,7 +34,7 @@ function TabPanel(props: TabPanelProps) {
       )}
     </div>
   )
-}
+})
 
 function a11yProps(index: number) {
   return {
@@ -49,7 +49,7 @@ type PropsType = {
   similarMovies: MovieType[] | undefined
 }
 
-export const MovieTabs:React.FC<PropsType> = (props) => {
+export const MovieTabs:React.FC<PropsType> = React.memo((props) => {
   const [value, setValue] = React.useState(0)
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -83,4 +83,4 @@ export const MovieTabs:React.FC<PropsType> = (props) => {
       </TabPanel>
     </Box>
   )
-}
+})

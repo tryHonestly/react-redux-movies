@@ -17,7 +17,7 @@ const lists = {
   favorite : (id: number, toggle : boolean) => TMDB_UserApi.toggleToFavoriteList(id, toggle),
 }
 
-const ToggleToListButton: React.FC<PropsType> = ({id, toggle, variant = 'text', disabled = false, toList}) => {
+const ToggleToListButton: React.FC<PropsType> = React.memo(({id, toggle, variant = 'text', disabled = false, toList}) => {
  
   const [clicked, setСlicked] = useState(toggle)
   
@@ -56,6 +56,6 @@ const ToggleToListButton: React.FC<PropsType> = ({id, toggle, variant = 'text', 
       {clicked ? `Delete from ${toList}` : `Add to ${toList}`}
     </Button>
   )
-}
+})
 
 export default ToggleToListButton

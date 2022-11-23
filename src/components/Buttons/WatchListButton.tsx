@@ -5,7 +5,7 @@ import ListIcon from '@mui/icons-material/List';
 
 import { RoutesEnum } from '../../constants/routes'
 
-const WatchListButton = () => {
+const WatchListButton = React.memo(() => {
 
   const navigate = useNavigate()
 
@@ -24,6 +24,6 @@ const WatchListButton = () => {
       <ListIcon />
     </Button>
   )
-}
+})
 
 export default WatchListButton

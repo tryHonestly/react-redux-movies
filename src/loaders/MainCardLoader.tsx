@@ -1,7 +1,7 @@
-import { Box, Skeleton } from '@mui/material'
 import React from 'react'
+import { Box, Skeleton } from '@mui/material'
 
-const MainCardLoader = () => {
+const MainCardLoader = React.memo(() => {
   return (
     <Box sx={{ height: `580px` }}>
       <Skeleton variant="rectangular" width={300} height={450} />
@@ -11,6 +11,6 @@ const MainCardLoader = () => {
       <Skeleton variant="rectangular" width={300} height={25} />
     </Box>
   )
-}
+})
 
 export default MainCardLoader

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { RoutesEnum } from '../../constants/routes';
 
-const HomeButton = React.memo(() => {
+const HomeButton = () => {
  
   const navigate = useNavigate()
 
@@ -25,6 +25,6 @@ const HomeButton = React.memo(() => {
       <HomeIcon fontSize="large" />
     </IconButton>
   )
-})
+}
 
 export default HomeButton

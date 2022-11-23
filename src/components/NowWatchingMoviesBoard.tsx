@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { useGetNowWatchingMoviesQuery } from '../services/TMBD_Api'
 import { Alert } from '@mui/material'
 
-export const NowWatchingMoviesBoard: React.FC = React.memo(() => {
+export const NowWatchingMoviesBoard: React.FC = () => {
 
   const { data, isError } = useGetNowWatchingMoviesQuery()
 
@@ -37,4 +37,4 @@ export const NowWatchingMoviesBoard: React.FC = React.memo(() => {
   </ImageList>
    
   )
-})
+}

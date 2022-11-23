@@ -13,7 +13,7 @@ import { selectIsAuth } from '../redux/selectors';
 
 
 
-export const SearchAppBar:React.FC = React.memo(() => {
+export const SearchAppBar:React.FC = () => {
   const isAuth = useSelector(selectIsAuth)
  
         
@@ -38,7 +38,7 @@ export const SearchAppBar:React.FC = React.memo(() => {
     
     </Box>
   );
-})
+}
 
 
 

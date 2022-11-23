@@ -18,7 +18,7 @@ import { selectCategory } from '../../redux/selectors';
 import styles from './MobileCategoriesPicker.module.scss'
 
 
-export const MobileCategoriesPicker:React.FC = () => {
+export const MobileCategoriesPicker:React.FC = React.memo(() => {
 
   const category = useSelector(selectCategory)
   const [value, setValue] = React.useState<CategoryType>(category);
@@ -50,5 +50,5 @@ export const MobileCategoriesPicker:React.FC = () => {
       
     </Box>
   );
-}
+})
 

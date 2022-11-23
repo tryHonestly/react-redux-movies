@@ -17,7 +17,7 @@ import { HomePage, CatalogPage, MoviePage, WatchListPage, FavoritePage, NotFound
 
 import './styles/App.scss'
 
-const App = React.memo(() => {
+const App = () => {
 
   const dispatch = useDispatch<AppDispatch>()
   const isAuth = useSelector(selectIsAuth)
@@ -72,6 +72,6 @@ const App = React.memo(() => {
       <Footer />
     </>
   )
-})
+}
 
 export default App

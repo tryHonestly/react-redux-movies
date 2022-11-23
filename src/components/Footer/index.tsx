@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './Footer.module.scss'
 
-const Footer:React.FC = React.memo(() => {
+const Footer:React.FC = () => {
   return (
     <div className={styles.root}>
 
@@ -11,7 +11,7 @@ const Footer:React.FC = React.memo(() => {
       
     </div>
   )
-})
+}
 
 
 export default Footer
