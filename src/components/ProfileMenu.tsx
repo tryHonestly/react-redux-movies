@@ -25,7 +25,7 @@ const ProfileMenu: React.FC = () => {
   const user = useSelector(selectUser)
 
 
-  console.log(`Profile render`);
+
   
   const toggleDrawer =
     (anchor: Anchor, open: boolean) =>

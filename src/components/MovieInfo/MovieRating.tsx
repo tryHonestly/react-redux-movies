@@ -24,8 +24,6 @@ const MovieRating = ({details} : PropsType) => {
           details?.id,
           value
         )
-        console.log(data);
-        
         data.success && alert(data.status_message)
       }
     } catch (e) {
