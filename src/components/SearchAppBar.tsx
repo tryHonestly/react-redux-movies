@@ -16,13 +16,13 @@ import { selectIsAuth } from '../redux/selectors';
 export const SearchAppBar:React.FC = () => {
   const isAuth = useSelector(selectIsAuth)
  
-        
+  
   return (
     <Box sx={{ flexGrow: 1, marginBottom:'59px',}}>
       <AppBar sx={{ bgcolor:`#252525` }} position="fixed">
         <Toolbar>
           <HomeButton/>
-
+         
           <Typography variant="h6" noWrap component="div" sx={{ display: { xs: 'none', sm: 'block' } }}>
            React-Redux-Movies
           </Typography>

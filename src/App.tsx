@@ -22,6 +22,7 @@ const App = () => {
   const dispatch = useDispatch<AppDispatch>()
   const isAuth = useSelector(selectIsAuth)
 
+  
   useEffect(() => {
     if (window.localStorage.getItem(`request_token`)) {
       TMDB_UserApi.authorization()
@@ -52,7 +53,7 @@ const App = () => {
   return (
     <>
       <SearchAppBar />
-
+     
       <Container  maxWidth="xl" sx={{minHeight:'100vh', padding:'0px'}}>
         <Routes>
           <Route path={RoutesEnum.Home} element={<HomePage />} />

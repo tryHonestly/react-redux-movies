@@ -51,32 +51,32 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }))
 
 const SearchInput = () => {
+  
+  const navigate = useNavigate()
      
   const filter = useSelector(selectFilter)
   
   const dispatch = useDispatch<AppDispatch>()
   
   const [inputValue, setInputValue] = useState(``)
-  const debounce = useDebounce(inputValue, 600)
-  const navigate = useNavigate()
+  const debounceValue = useDebounce(inputValue, 600)
   
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         
     if (e.code === `Enter`) {
       window.scrollTo({top: 0, behavior: 'smooth'});
-      dispatch(setSearchQueryString(debounce))
+      dispatch(setSearchQueryString(debounceValue))
       navigate(RoutesEnum.Catalog)
     }
   }
 
   useEffect(() => {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-    dispatch(setSearchQueryString(debounce))
-    if(debounce !== ``){
-    window.scrollTo({top: 0, behavior: 'smooth'});
-     navigate(RoutesEnum.Catalog)
+   if(debounceValue !== ``){
+      window.scrollTo({top: 0, behavior: 'smooth'});
+      dispatch(setSearchQueryString(debounceValue))
+      navigate(RoutesEnum.Catalog)
     }
-   }, [debounce])
+   }, [debounceValue])
 
 
    useEffect(() => {

@@ -16,7 +16,7 @@ const HomeButton = () => {
   
   return (
     <IconButton
-      onClick={clickHandler}
+      onClick={() => clickHandler()}
       size="large"
       edge="start"
       color="inherit"

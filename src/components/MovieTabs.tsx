@@ -16,7 +16,7 @@ interface TabPanelProps {
   value: number
 }
 
-const TabPanel = React.memo((props: TabPanelProps)  => {
+const TabPanel = (props: TabPanelProps)  => {
   const { children, value, index, ...other } = props
 
   return (
@@ -34,7 +34,7 @@ const TabPanel = React.memo((props: TabPanelProps)  => {
       )}
     </div>
   )
-})
+}
 
 function a11yProps(index: number) {
   return {
