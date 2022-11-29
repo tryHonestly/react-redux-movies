@@ -19,36 +19,9 @@ import './styles/App.scss'
 
 const App = () => {
 
-  const dispatch = useDispatch<AppDispatch>()
   const isAuth = useSelector(selectIsAuth)
-
   
-  useEffect(() => {
-    if (window.localStorage.getItem(`request_token`)) {
-      TMDB_UserApi.authorization()
-      .then((account) => {
-        dispatch(setUser(account.data))
-      })
-      .catch(() => {
-        alert('Failed to sign in')
-        
-      })
-      .finally(() => {
-        window.localStorage.removeItem('request_token')
-      })
-           
-    }
-    if (window.localStorage.getItem(`access_token`)) {
-      TMDB_UserApi.getMe()
-      .then((account) => {
-        dispatch(setUser(account.data))
-      })
-      .catch(() => {
-        alert('Failed to sign in')
-        window.localStorage.removeItem('access_token')
-     })
-    }
-  }, [])
+  useLogin()
 
   return (
     <>
@@ -76,3 +49,35 @@ const App = () => {
 }
 
 export default App
+
+
+const useLogin = () => {
+  
+  const dispatch = useDispatch<AppDispatch>()
+  useEffect(() => {
+    if (window.localStorage.getItem(`request_token`)) {
+      TMDB_UserApi.authorization()
+      .then((account) => {
+        dispatch(setUser(account.data))
+      })
+      .catch(() => {
+        alert('Failed to sign in')
+        
+      })
+      .finally(() => {
+        window.localStorage.removeItem('request_token')
+      })
+           
+    }
+    if (window.localStorage.getItem(`access_token`)) {
+      TMDB_UserApi.getMe()
+      .then((account) => {
+        dispatch(setUser(account.data))
+      })
+      .catch(() => {
+        alert('Failed to sign in')
+        window.localStorage.removeItem('access_token')
+     })
+    }
+  }, [])
+}

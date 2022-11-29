@@ -15,25 +15,12 @@ import styles from './MoviePage.module.scss'
 
 
 export const MoviePage = () => {
-  const isAuth = useSelector(selectIsAuth)
   const { id } = useParams()
-
   const { data: details, isFetching, isError} = useGetMovieDetailsQuery(Number(id))
   const { data: credits } = useGetMovieCreditsQuery(Number(id))
   const { data: similarMovies } = useGetSimilarMoviesQuery(Number(id))
-  const [inLists, setInLists] = useState({favorite:false, watchlist:false})
-
-  useEffect(() => {
-    if (isAuth) {
-      instance
-        .get(`/movie/${id}/account_states`)
-        .then((data) => {
-          const {favorite, watchlist} = data.data
-          setInLists({favorite, watchlist})
-        })
-    }
-  }, [isAuth])
-   
+  const inLists = useInUsersLists(id)
+  
   return (
     
     <div className={styles.root}>
@@ -53,4 +40,21 @@ export const MoviePage = () => {
   )
 }
 
+const useInUsersLists = ( id:string | undefined) => {
 
+  const isAuth = useSelector(selectIsAuth)
+  const [inLists, setInLists] = useState({favorite:false, watchlist:false})
+
+  useEffect(() => {
+    if (isAuth && id) {
+      instance
+        .get(`/movie/${id}/account_states`)
+        .then((data) => {
+          const {favorite, watchlist} = data.data
+          setInLists({favorite, watchlist})
+        })
+    }
+  }, [isAuth, id])
+
+  return inLists
+}

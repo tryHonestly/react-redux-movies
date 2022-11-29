@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { Alert } from '@mui/material'
 
 import Paginator from '../../components/Paginator'
-import { setPage } from '../../redux/slices/PageSlice'
-import { AppDispatch } from '../../redux/store'
+
 import { selectPage } from '../../redux/selectors'
 import { useGetWatchListMoviesQuery } from '../../services/TMBD_Api'
 import { MainCard } from '../../components/MovieCards'
@@ -13,21 +12,15 @@ import NotFound from '../../components/NotFound'
 
 import styles from './WatchListPage.module.scss'
 import ToggleToListButton from '../../components/Buttons/ToggleToListButton'
+import { useSetFirstPage } from '../../hooks/useSetFirstPage'
 
 
 export const WatchListPage = () => {
   const page = useSelector(selectPage)
-  const dispatch = useDispatch<AppDispatch>()
 
-  const { data, isFetching, isError, refetch} = useGetWatchListMoviesQuery(page)
+  const { data, isFetching, isError, } = useGetWatchListMoviesQuery(page)
 
-  useEffect(() => {
-    dispatch(setPage(1))
-    refetch()
-    return () => {
-      dispatch(setPage(1))
-    }
-  }, [])
+  useSetFirstPage()
 
   return (
     <div className={styles.root}>

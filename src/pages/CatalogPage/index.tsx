@@ -26,7 +26,7 @@ export const CatalogPage = () => {
   const { isMobile } = useMediaQuery()
         
   return (
-    <div className={styles.root}>
+    <div  className={styles.root}>
       {isError && <Alert severity="error">This is an error alert — Failed to get movies</Alert> }
         <div className={styles.content}>
           {isMobile ? <Drawer/> : <SearchFilters />}

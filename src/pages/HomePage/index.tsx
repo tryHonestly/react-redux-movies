@@ -1,13 +1,12 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Alert } from '@mui/material'
 
 
 import CategoriesPicker from '../../components/CategoriesPicker'
 import Paginator from '../../components/Paginator'
 import { useGetMoviesByCategoryQuery } from '../../services/TMBD_Api'
-import { setPage } from '../../redux/slices/PageSlice'
+import { useSetFirstPage } from '../../hooks/useSetFirstPage'
 import { NowWatchingMoviesBoard } from '../../components/NowWatchingMoviesBoard'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { selectCategory, selectPage } from '../../redux/selectors'
@@ -24,8 +23,6 @@ const movieListTilte = {
 
 export const HomePage = () => {
  
-  const dispatch = useDispatch()
-
   const category = useSelector(selectCategory)
   const page = useSelector(selectPage)
   const { data, isFetching , isError} = useGetMoviesByCategoryQuery({page, category})
@@ -33,15 +30,7 @@ export const HomePage = () => {
  
   const { isMobile } = useMediaQuery()
  
-
-  useEffect(() => {
-    dispatch(setPage(1))
-    return () => {
-      dispatch(setPage(1))
-    }
-  }, [])
-
-  
+  useSetFirstPage()
  
   return (
 

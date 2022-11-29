@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { ButtonGroup } from '@mui/material'
 import { useSelector } from 'react-redux'
 
@@ -18,6 +18,7 @@ type PropsType = {
 
 
 const MovieInfo: React.FC<PropsType> = React.memo(({ details, inLists }) => {
+  
   const isAuth = useSelector(selectIsAuth)
   
   return (

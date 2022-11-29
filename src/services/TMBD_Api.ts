@@ -16,7 +16,7 @@ type MoviesByCategorytType = {
 
 export const TMBD_Api = createApi({
   reducerPath: 'TMBD_Api',
-  baseQuery: fetchBaseQuery({ baseUrl: API_URL_v3, prepareHeaders:(headers, {getState}) => {
+  baseQuery: fetchBaseQuery({ baseUrl: API_URL_v3, prepareHeaders:(headers, { getState }) => {
     headers.set('Authorization', `Bearer ${window.localStorage.getItem(`access_token`)}`)
     headers.set('Content-Type', 'application/json;charset=utf-8')
     return headers
@@ -51,9 +51,11 @@ export const TMBD_Api = createApi({
     }),
     getFavoritesMovies: builder.query<FetchingMoviesDataType, number>({
       query: (page) => `account/id/favorite/movies?page=${page}`,
+      keepUnusedDataFor : 0
     }),
     getWatchListMovies: builder.query<FetchingMoviesDataType, number>({
       query: (page) => `account/id/watchlist/movies?page=${page}`,
+      keepUnusedDataFor : 0
     }),
            
   }),

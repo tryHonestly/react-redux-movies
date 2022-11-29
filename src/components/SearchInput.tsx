@@ -62,8 +62,7 @@ const SearchInput = () => {
   const debounceValue = useDebounce(inputValue, 600)
   
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        
-    if (e.code === `Enter`) {
+   if (e.code === `Enter`) {
       window.scrollTo({top: 0, behavior: 'smooth'});
       dispatch(setSearchQueryString(debounceValue))
       navigate(RoutesEnum.Catalog)
@@ -71,7 +70,7 @@ const SearchInput = () => {
   }
 
   useEffect(() => {
-   if(debounceValue !== ``){
+   if(debounceValue){
       window.scrollTo({top: 0, behavior: 'smooth'});
       dispatch(setSearchQueryString(debounceValue))
       navigate(RoutesEnum.Catalog)

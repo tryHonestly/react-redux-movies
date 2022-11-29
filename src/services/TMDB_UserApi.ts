@@ -8,6 +8,7 @@ import {
 import { TMDB_tokensApi } from './TMDB_tokensApi'
 
 export class TMDB_UserApi {
+
   static async getMe() {
     return await instance.get<AccountType>(`account`,)
   }
@@ -27,7 +28,7 @@ export class TMDB_UserApi {
       media_id: id,
       watchlist: toggle,
     }
-   return await instance.post<ToggleWatchListType>(`account/id/watchlist`, data,)
+   return await instance.post<ToggleWatchListType>(`account/id/watchlist`, data)
   }
 
   static async toggleToFavoriteList(id: number, toggle: boolean) {
@@ -36,7 +37,7 @@ export class TMDB_UserApi {
       media_id: id,
       favorite: toggle,
     }
-    return await instance.post<ToggleFavoriteListType>( `account/id/favorite`,data)
+    return await instance.post<ToggleFavoriteListType>( `account/id/favorite`, data)
   }
 
   static async rateMovie(id: number, value: number | null) {

@@ -22,6 +22,7 @@ const ToggleToListButton: React.FC<PropsType> = React.memo(({id, toggle, variant
   const [clicked, setСlicked] = useState(toggle)
   
   const clickHandler = async () => {
+
     if (!clicked) {
       try {
         await lists[toList](id, true)
@@ -41,8 +42,7 @@ const ToggleToListButton: React.FC<PropsType> = React.memo(({id, toggle, variant
 
     setСlicked(!clicked)
   }
-
-    useEffect(() => {
+   useEffect(() => {
       setСlicked(toggle)
     }, [toggle])
     

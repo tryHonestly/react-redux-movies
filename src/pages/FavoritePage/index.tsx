@@ -1,11 +1,8 @@
 import React from 'react'
-import { useEffect, } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Alert } from '@mui/material'
 
 import Paginator  from '../../components/Paginator'
-import { setPage } from '../../redux/slices/PageSlice'
-import { AppDispatch } from '../../redux/store'
 import { selectPage } from '../../redux/selectors'
 import { useGetFavoritesMoviesQuery } from '../../services/TMBD_Api'
 import { MainCard } from '../../components/MovieCards'
@@ -14,19 +11,14 @@ import NotFound from '../../components/NotFound'
 
 import styles from './FavoritePage.module.scss'
 import ToggleToListButton from '../../components/Buttons/ToggleToListButton'
+import { useSetFirstPage } from '../../hooks/useSetFirstPage'
 
 export const FavoritePage = () => {
   const page = useSelector(selectPage)
-  const dispatch = useDispatch<AppDispatch>()
-  const { data, isFetching, isError, refetch} = useGetFavoritesMoviesQuery(page)
+  
+  const { data, isFetching, isError} = useGetFavoritesMoviesQuery(page)
     
-  useEffect(() => {
-    dispatch(setPage(1))
-    refetch()
-    return () => {
-      dispatch(setPage(1))
-    }
-  }, [])
+  useSetFirstPage()
  
   return (
     <div className={styles.root}>
