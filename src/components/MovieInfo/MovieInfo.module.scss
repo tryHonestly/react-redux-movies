@@ -1,5 +1,4 @@
 .root {
-  padding: 1rem;
   width: auto;
   display: flex;
   flex-direction: column;
@@ -7,6 +6,7 @@
   flex: 1;
 
   .title {
+    margin-top: 0px;
     text-align: start;
   }
 
@@ -27,6 +27,15 @@
     }
     i {
       opacity: 0.8;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .root {
+    padding: 10px;
+    .title {
+      margin-top: 20px;
     }
   }
 }
